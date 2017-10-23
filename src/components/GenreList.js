@@ -3,7 +3,7 @@ import '../App.css';
 
 const GenreList = ({ genres }) => {
   return (
-    <div>
+    <div className="GenreList">
       {
         genres.map((genre, i) => {
           if (genre === genres[genres.length - 1]) {

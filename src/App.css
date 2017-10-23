@@ -4,6 +4,8 @@ grey: #828282
 black: #000000
 green: #84bd00 */
 
+
+
 body {
   background: #828282;
   color: #828282;
@@ -11,9 +13,8 @@ body {
 }
 
 .App {
-  width: 460px;
+  max-width: 660px;
   margin: 20px auto;
-  text-align: center;
   padding: 5%;
   background: #ecebe8;
   border: 2px solid #000000;
@@ -22,7 +23,8 @@ body {
 
 .Logo {
   display: flex;
-  width: 100%;
+  width: 60%;
+  margin: 0 auto 20px auto;
 }
 
 .Title {
@@ -31,21 +33,43 @@ body {
   font-size: 1.3em;
 }
 
+/* SEARCH */
+
+.form-control:focus {
+  border-color: #84bd00;
+  box-shadow: inset 0 1px 1px #84bd00 , 0 0 8px #84bd00;
+}
+
 /* ARTIST */
 
 .Artist {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .artist_image {
-  width: 130px;
+  height: 100%;
+  width: 40%;
   border: 2px solid #84bd00;
   border-radius: 50%;
+  margin: auto;
+}
+
+.artist_info {
+  height: 100%;
+  width: 40%;
+  padding: 5px;
+  display: inline-block;
+  margin: auto;
+  border-left: 2px solid #85bd00;
+}
+
+.artist_info div {
+  margin: 5px 0;
 }
 
 .artist_name {
+  color: #84bd00;
   font-weight: 600;
-  font-size: 1.6em;
-  color: #000000;
+  font-size: 1.2em;
 }

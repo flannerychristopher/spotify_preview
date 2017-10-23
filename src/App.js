@@ -15,8 +15,10 @@ export default class App extends Component {
   }
 
   search() {
+    this.setState({ query: '' })
     // console.log(access_token);        
     const BASE_URL = 'https://api.spotify.com/v1/search?';
+    // const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
     const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
 
     var authOptions = {
@@ -52,8 +54,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <img className="Logo" src="./logo.png" alt="Spotify"  />
-        <div className="Title">Spotify Timer</div>
+        <img className="Logo" src="./logo.png" alt="Spotify" />
+        {/* <div className="Title">Spotify Timer</div> */}
 
         <Search
           value={this.state.query}
@@ -62,10 +64,7 @@ export default class App extends Component {
           onKeyPress={this.onKeyPress.bind(this)}
         />
 
-        <Artist
-          className="Artist"
-          artist={this.state.artist}
-        />
+        <Artist artist={this.state.artist} />
 
         <div className="Gallery">
           Gallery
