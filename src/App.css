@@ -4,10 +4,10 @@ grey: #828282
 black: #000000
 green: #84bd00 */
 
-
 body {
   background: #828282;
-
+  color: #828282;
+  font-family: Montserrat, sans-serif;
 }
 
 .App {
@@ -16,12 +16,36 @@ body {
   text-align: center;
   padding: 5%;
   background: #ecebe8;
-  border: 5px solid #000000;
+  border: 2px solid #000000;
   border-radius: 10px;
+}
+
+.Logo {
+  display: flex;
+  width: 100%;
 }
 
 .Title {
   color: #84bd00;
   font-weight: 600;
   font-size: 1.3em;
+}
+
+/* ARTIST */
+
+.Artist {
+  display: flex;
+  justify-content: center;
+}
+
+.artist_image {
+  width: 130px;
+  border: 2px solid #84bd00;
+  border-radius: 50%;
+}
+
+.artist_name {
+  font-weight: 600;
+  font-size: 1.6em;
+  color: #000000;
 }

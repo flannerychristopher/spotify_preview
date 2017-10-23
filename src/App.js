@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import access_token from './API_KEYS';
+import Artist from './components/Artist';
 import Search from './components/Search';
 import './App.css';
 
@@ -7,12 +9,36 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: ''
+      query: 'tupac',
+      artist: null,
     }
   }
 
   search() {
-    console.log('search');
+    // console.log(access_token);        
+    const BASE_URL = 'https://api.spotify.com/v1/search?';
+    const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+
+    var authOptions = {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + access_token
+      },
+      mode: 'cors',
+      cache: 'default'
+    };
+
+    fetch(FETCH_URL, authOptions)
+      .then(response => response.json())
+      .then(json => {
+        try {
+          const artist = json.artists.items[0];
+          this.setState({ artist })
+        } catch (error) {
+          console.log(error);
+          this.setState({ artist: null })
+        }
+      });
   }
 
   updateQuery(query) {
@@ -26,6 +52,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
+        <img className="Logo" src="./logo.png" alt="Spotify"  />
         <div className="Title">Spotify Timer</div>
 
         <Search
@@ -35,10 +62,10 @@ export default class App extends Component {
           onKeyPress={this.onKeyPress.bind(this)}
         />
 
-        <div className="Profile">
-          <div>Picture</div>
-          <div>Name</div>
-        </div>
+        <Artist
+          className="Artist"
+          artist={this.state.artist}
+        />
 
         <div className="Gallery">
           Gallery
