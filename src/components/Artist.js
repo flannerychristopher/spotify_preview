@@ -13,12 +13,12 @@ export default class Profile extends Component {
       <div className="Artist">
         <img
           alt="Artist"
-          className="artist_image"
+          className="artistImage"
           src={artist.images[0].url}
         />
 
-        <div className="artist_info">
-          <div className="artist_name">{artist.name}</div>
+        <div className="artistInfo">
+          <div className="artistName">{artist.name}</div>
           <div>Followers: {artist.followers.total}</div>
           <GenreList genres={artist.genres} />
         </div>

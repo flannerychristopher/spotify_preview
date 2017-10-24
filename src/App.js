@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import access_token from './API_KEYS';
 import Artist from './components/Artist';
+import Gallery from './components/Gallery';
 import Search from './components/Search';
 import './App.css';
 
@@ -11,15 +12,15 @@ export default class App extends Component {
     this.state = {
       query: 'tupac',
       artist: null,
+      tracks: null
     }
   }
 
   search() {
     this.setState({ query: '' })
     // console.log(access_token);        
-    const BASE_URL = 'https://api.spotify.com/v1/search?';
-    // const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
-    const FETCH_URL = BASE_URL + 'q=' + this.state.query + '&type=artist&limit=1';
+    const BASE_INFO_URL = 'https://api.spotify.com/v1/search?';
+    const INFO_QUERY_URL = BASE_INFO_URL + 'q=' + this.state.query + '&type=artist&limit=1';
 
     var authOptions = {
       method: 'GET',
@@ -30,12 +31,21 @@ export default class App extends Component {
       cache: 'default'
     };
 
-    fetch(FETCH_URL, authOptions)
+    fetch(INFO_QUERY_URL, authOptions)
       .then(response => response.json())
       .then(json => {
         try {
-          const artist = json.artists.items[0];
+          let artist = json.artists.items[0];
           this.setState({ artist })
+
+          const BASE_TRACKS_URL = 'https://api.spotify.com/v1/artists/';
+          const TRACKS_URL = `${BASE_TRACKS_URL}${this.state.artist.id}/top-tracks?country=US`;
+          fetch(TRACKS_URL, authOptions)
+            .then(response => response.json())
+            .then(json => {
+              const tracks = json.tracks;
+              this.setState({ tracks })
+            });
         } catch (error) {
           console.log(error);
           this.setState({ artist: null })
@@ -66,9 +76,7 @@ export default class App extends Component {
 
         <Artist artist={this.state.artist} />
 
-        <div className="Gallery">
-          Gallery
-        </div>
+        <Gallery tracks={this.state.tracks} />
       </div>
     );
   }

@@ -4,12 +4,11 @@ grey: #828282
 black: #000000
 green: #84bd00 */
 
-
-
 body {
   background: #828282;
   color: #828282;
   font-family: Montserrat, sans-serif;
+  box-sizing: border-box;
 }
 
 .App {
@@ -45,9 +44,10 @@ body {
 .Artist {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 15px;
 }
 
-.artist_image {
+.artistImage {
   height: 100%;
   width: 40%;
   border: 2px solid #84bd00;
@@ -55,7 +55,7 @@ body {
   margin: auto;
 }
 
-.artist_info {
+.artistInfo {
   height: 100%;
   width: 40%;
   padding: 5px;
@@ -64,12 +64,52 @@ body {
   border-left: 2px solid #85bd00;
 }
 
-.artist_info div {
+.artistInfo div {
   margin: 5px 0;
 }
 
-.artist_name {
+.artistName {
   color: #84bd00;
   font-weight: 600;
   font-size: 1.2em;
+}
+
+/* GALLERY */
+
+.trackList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.track {
+  position: relative;
+  width: 30%;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+.trackLabel {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  max-width: 75%;
+  font-size: .7em;
+  color: #fff;
+  background-color: #84bd00;
+  border: 1px solid #828282;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 5%;
+  z-index: 10;
+}
+
+.trackImg {
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 15px;
+}
+
+.trackImg:hover {
+  opacity: 0.3;
 }
