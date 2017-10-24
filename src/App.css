@@ -14,7 +14,7 @@ body {
 .App {
   max-width: 660px;
   margin: 20px auto;
-  padding: 5%;
+  padding: 20px 5%;
   background: #ecebe8;
   border: 2px solid #000000;
   border-radius: 10px;
@@ -104,6 +104,22 @@ body {
   z-index: 10;
 }
 
+
+.playIcon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 3em;
+  color: #84bd00;
+  opacity: 0;
+}
+
+.playIcon:hover {
+  opacity: 1.0;
+  animation-name: fadeIn;
+  animation-duration: .6s;
+}
+
 .trackImg {
   width: 100%;
   border: 1px solid #000000;
@@ -112,4 +128,12 @@ body {
 
 .trackImg:hover {
   opacity: 0.3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  } to {
+    opacity: 1;
+  }
 }

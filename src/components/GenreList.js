@@ -3,13 +3,13 @@ import '../App.css';
 
 const GenreList = ({ genres }) => {
   return (
-    <div className="GenreList">
+    <div className="GenreList">Genres: 
       {
         genres.map((genre, i) => {
           if (genre === genres[genres.length - 1]) {
-            genre = `${genre}`;
+            genre = ` ${genre}`;
           } else {
-            genre = `${genre}, `
+            genre = ` ${genre},`
           }
           return <span key={i}>{genre}</span>
         })

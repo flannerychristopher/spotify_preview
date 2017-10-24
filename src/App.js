@@ -18,7 +18,6 @@ export default class App extends Component {
 
   search() {
     this.setState({ query: '' })
-    // console.log(access_token);        
     const BASE_INFO_URL = 'https://api.spotify.com/v1/search?';
     const INFO_QUERY_URL = BASE_INFO_URL + 'q=' + this.state.query + '&type=artist&limit=1';
 
@@ -65,7 +64,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <img className="Logo" src="./logo.png" alt="Spotify" />
-        {/* <div className="Title">Spotify Timer</div> */}
+        <div className="Title">Spotify Timer</div>
 
         <Search
           value={this.state.query}
