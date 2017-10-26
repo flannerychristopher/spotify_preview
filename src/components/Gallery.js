@@ -10,6 +10,7 @@ export default class Gallery extends Component {
       playing: false
     }
   }
+
   playAudio(preview_url) {
     let audio = new Audio(preview_url);
     if (this.state.playing) {
@@ -36,6 +37,9 @@ export default class Gallery extends Component {
     const trackList = <div className="trackList">
       {
         tracks.map((track, i) => {
+          if (!track.preview_url) {
+            return false;
+          }
           return (
             <div
               key={i}
@@ -44,9 +48,9 @@ export default class Gallery extends Component {
             >
               <span className="playIcon">
                 {
-                  this.state.preview_url === track.preview_url 
-                    ? <span>&#9208;</span>
-                    : <span>&#128265;</span>
+                  this.state.preview_url === track.preview_url
+                    ? <span role="img" aria-label="pause">&#9208;</span>
+                    : <span role="img" aria-label="play">&#128265;</span>
                 }
               </span>
               <span className="trackLabel">{track.name}</span>

@@ -1,6 +1,6 @@
 {
-  "short_name": "Spotify Timer",
-  "name": "Spotify Timer",
+  "short_name": "Spotify Preview",
+  "name": "Spotify Preview",
   "icons": [
     {
       "src": "spotify.ico",

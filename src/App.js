@@ -10,7 +10,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: 'tupac',
+      query: '',
       artist: null,
       tracks: null
     }
@@ -64,7 +64,6 @@ export default class App extends Component {
     return (
       <div className="App">
         <img className="Logo" src="./logo.png" alt="Spotify" />
-        <div className="Title">Spotify Timer</div>
 
         <Search
           value={this.state.query}
